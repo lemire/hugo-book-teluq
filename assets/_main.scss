@@ -52,7 +52,12 @@ aside nav ul {
     position: relative;
   }
 
-  a, span {
+  // Uniquement les items de menu (liens ou titres sans lien).
+  // Ne pas cibler tous les `span` descendants : KaTeX en injecte beaucoup
+  // dans les entrées de TOC contenant des formules, et `display: block`
+  // empile alors chaque symbole sur sa propre ligne (G / t / G / t, etc.).
+  a,
+  li > span {
     padding: .5em 0;
     display: block;
   }
